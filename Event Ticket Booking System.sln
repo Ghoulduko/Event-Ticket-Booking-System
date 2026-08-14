@@ -1,0 +1,39 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Event Ticket Booking System", "Event Ticket Booking System\Event Ticket Booking System.csproj", "{028A431B-E2A2-4583-A926-07ABA8A4686C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "API", "API", "{D1DB6D16-12BE-414B-B83F-270921D87100}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Application", "Application", "{2652B432-9A8D-4C99-B741-2F881D06A0DD}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{8593D5D2-65BF-4209-9CA1-9605B8DF324D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Booking.Application", "Booking.Application\Booking.Application.csproj", "{BCDD9FEF-B31D-4ADE-9A12-9234EC830CB4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Booking.Core", "Booking.Core\Booking.Core.csproj", "{B85EB498-A500-48CB-8C55-FD492748305A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{028A431B-E2A2-4583-A926-07ABA8A4686C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{028A431B-E2A2-4583-A926-07ABA8A4686C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{028A431B-E2A2-4583-A926-07ABA8A4686C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{028A431B-E2A2-4583-A926-07ABA8A4686C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BCDD9FEF-B31D-4ADE-9A12-9234EC830CB4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BCDD9FEF-B31D-4ADE-9A12-9234EC830CB4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BCDD9FEF-B31D-4ADE-9A12-9234EC830CB4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BCDD9FEF-B31D-4ADE-9A12-9234EC830CB4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B85EB498-A500-48CB-8C55-FD492748305A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B85EB498-A500-48CB-8C55-FD492748305A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B85EB498-A500-48CB-8C55-FD492748305A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B85EB498-A500-48CB-8C55-FD492748305A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{028A431B-E2A2-4583-A926-07ABA8A4686C} = {D1DB6D16-12BE-414B-B83F-270921D87100}
+		{BCDD9FEF-B31D-4ADE-9A12-9234EC830CB4} = {2652B432-9A8D-4C99-B741-2F881D06A0DD}
+		{B85EB498-A500-48CB-8C55-FD492748305A} = {8593D5D2-65BF-4209-9CA1-9605B8DF324D}
+	EndGlobalSection
+EndGlobal
