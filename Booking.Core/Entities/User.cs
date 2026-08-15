@@ -10,5 +10,5 @@ public class User : BaseModel
     [Required] public required string Name { get; set; }
     [Required] public required string LastName { get; set; }
     [Required] public required string Email { get; set; }
-    public required string Password { get; set; }
+    [Required] public required string Password { get; set; }
 }
