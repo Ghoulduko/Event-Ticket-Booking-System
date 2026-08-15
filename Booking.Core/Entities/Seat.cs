@@ -1,0 +1,14 @@
+﻿using System.ComponentModel.DataAnnotations.Schema;
+using Booking.Core.Models;
+
+namespace Booking.Core.Entities;
+
+[Table("Seats")]
+public abstract class Seat : BaseModel
+{
+    public bool IsAvailable { get; set; }
+    public int Row { get; set; }
+    public int EventId { get; set; }
+    
+    public Event Event { get; set; }
+}
