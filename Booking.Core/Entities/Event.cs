@@ -12,11 +12,9 @@ public class Event : BaseModel
     
     public string? Description { get; set; }
     
-    [Required] public required DateTime EventDate { get; set; }
+    public DateTime EventDate { get; set; }
     
     [Required] public List<Seat> TotalSeats { get; set; }
-    
-    [Required] public List<Seat> AvailableSeats { get; set; }
     
     public DateTime CreatedAt { get; set; }
     

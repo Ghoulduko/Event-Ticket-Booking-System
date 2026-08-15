@@ -9,6 +9,6 @@ public class Reservation : BaseModel
     public int TicketId { get; set; }
     public int EventId { get; set; }
     
-    public Ticket Ticket { get; set; }
-    public Event Event { get; set; }
+    public Ticket? Ticket { get; set; }
+    public Event? Event { get; set; }
 }
