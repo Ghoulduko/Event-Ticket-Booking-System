@@ -5,12 +5,12 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Booking.Core.Repositories;
 
-public class ReservationRepository : IReservationRepository
+public class ReservationRepository : BaseRepository, IReservationRepository
 {
     private readonly TicketBookingDbContext _context;
     private readonly DbSet<Reservation> _reservations;
 
-    public ReservationRepository(TicketBookingDbContext context)
+    public ReservationRepository(TicketBookingDbContext context) : base(context)
     {
         _context = context;
         _reservations = _context.Reservations;
@@ -19,11 +19,9 @@ public class ReservationRepository : IReservationRepository
     private IQueryable<Reservation> BaseQuery()
     {
         return _reservations
-            .Include(r => r.Ticket)
-                .ThenInclude(r => r.User)
+            .Include(r => r.User)
             .Include(r => r.Event)
-            .Include(r => r.Ticket)
-                .ThenInclude(r => r.Seat);
+            .Include(r => r.Seat);
     }
     
     public async Task Create(Reservation request)
@@ -37,9 +35,9 @@ public class ReservationRepository : IReservationRepository
         return await BaseQuery().SingleOrDefaultAsync(r => r.Id == reservationId);
     }
 
-    public async Task<Reservation?> GetReservationByTicketId(int ticketId)
+    public async Task<Reservation?> GetReservationByUserEmail(int email)
     {
-        return await BaseQuery().SingleOrDefaultAsync(r => r.TicketId == ticketId);
+        return await BaseQuery().SingleOrDefaultAsync(r => r.User.Email.Equals(email));
     }
 
     public async Task<IEnumerable<Reservation>> GetEventReservations(int eventId)
