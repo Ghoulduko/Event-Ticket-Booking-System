@@ -11,7 +11,9 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Interfaces\Auth\" />
+      <PackageReference Include="BCrypt.Net-Next" Version="4.2.0" />
+        <Using Include="BCrypt.Net.BCrypt" Alias="BC" />
+      <PackageReference Include="FluentValidation" Version="12.1.1" />
     </ItemGroup>
 
 </Project>
