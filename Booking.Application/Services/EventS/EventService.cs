@@ -1,10 +1,10 @@
 ﻿using Booking.Application.Dtos.Event;
 using Booking.Application.Interfaces.EventInterfaces;
-using Booking.Application.Services.Seat;
+using Booking.Application.Services.SeatS;
 using Booking.Core.Interfaces;
 using Microsoft.Extensions.Logging;
 
-namespace Booking.Application.Services.Event;
+namespace Booking.Application.Services.EventS;
 
 public class EventService : IEventService
 {

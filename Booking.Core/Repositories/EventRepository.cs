@@ -32,6 +32,7 @@ public class EventRepository : BaseRepository, IEventRepository
     {
         return await BaseQuery().FirstOrDefaultAsync(e => e.Id == eventId);
     }
+    
     public async Task<Event?> GetEventByName(string eventName)
     {
         return await BaseQuery().FirstOrDefaultAsync(e => e.Name == eventName);
@@ -41,6 +42,10 @@ public class EventRepository : BaseRepository, IEventRepository
     {
         return await BaseQuery().ToListAsync();
     }
-
+    
+    public async Task<bool> EventExists(int eventId)
+    {
+        return await _events.AnyAsync(e => e.Id == eventId);
+    }
     
 }

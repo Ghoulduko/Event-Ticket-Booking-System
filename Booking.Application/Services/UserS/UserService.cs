@@ -4,7 +4,7 @@ using Booking.Core.Interfaces;
 using Booking.Core.Models;
 using Microsoft.Extensions.Logging;
 
-namespace Booking.Application.Services.User;
+namespace Booking.Application.Services.UserS;
 
 public class UserService : IUserService
 {

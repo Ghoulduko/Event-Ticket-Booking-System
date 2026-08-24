@@ -3,7 +3,7 @@ using Booking.Application.Interfaces.ReservationInterfaces;
 using Booking.Core.Interfaces;
 using Microsoft.Extensions.Logging;
 
-namespace Booking.Application.Services.Reservation;
+namespace Booking.Application.Services.ReservationS;
 
 public class ReservationService : IReservationService
 {
