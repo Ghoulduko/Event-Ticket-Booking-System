@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Booking.Application.Dtos.Event;
+using Booking.Application.Dtos.Reservation;
 using Booking.Application.Dtos.Seat;
 using Booking.Core.Entities;
 
@@ -14,5 +15,8 @@ public class MapperProfile : Profile
         
         // Event Mapping
         CreateMap<EventDto, Event>().ReverseMap();
+        
+        // Reservation Mapping
+        CreateMap<ReservationDto, Reservation>().ReverseMap();
     }
 }

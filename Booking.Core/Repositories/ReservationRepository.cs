@@ -35,7 +35,7 @@ public class ReservationRepository : BaseRepository, IReservationRepository
         return await BaseQuery().SingleOrDefaultAsync(r => r.Id == reservationId);
     }
 
-    public async Task<Reservation?> GetReservationByUserEmail(int email)
+    public async Task<Reservation?> GetReservationByUserEmail(string email)
     {
         return await BaseQuery().SingleOrDefaultAsync(r => r.User.Email.Equals(email));
     }
