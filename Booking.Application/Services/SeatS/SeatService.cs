@@ -26,8 +26,8 @@ public class SeatService : ISeatService
     
     public async Task<Result<SeatDto>> Create(CreateSeatDto request)
     {
-        var eventExists = await _eventRepository.EventExists(request.EventId);
-        if (!eventExists)
+        var eventExists = await _eventRepository.GetEventById(request.EventId);
+        if (eventExists is null)
             return new Result<SeatDto>
             {
                 Success = false,
@@ -54,6 +54,7 @@ public class SeatService : ISeatService
         return new Result<SeatDto>
         {
             Success = true,
+            Message = "Event created successfully"
         };
     }
 

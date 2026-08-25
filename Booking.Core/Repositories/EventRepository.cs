@@ -43,9 +43,9 @@ public class EventRepository : BaseRepository, IEventRepository
         return await BaseQuery().ToListAsync();
     }
     
-    public async Task<bool> EventExists(int eventId)
+    public async Task<bool> EventExists(string name)
     {
-        return await _events.AnyAsync(e => e.Id == eventId);
+        return await _events.AnyAsync(e => e.Name == name);
     }
     
 }

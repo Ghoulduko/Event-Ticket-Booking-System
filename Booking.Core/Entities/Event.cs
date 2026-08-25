@@ -8,12 +8,8 @@ namespace Booking.Core.Entities;
 public class Event : BaseModel
 {
     [Required] public string Name { get; set; }
-    
     public string? Description { get; set; }
-    
     public DateTime EventDate { get; set; }
-    
-    [Required] public List<Seat> TotalSeats { get; set; }
-    
     public DateTime CreatedAt { get; set; }
+    [Required] public List<Seat> TotalSeats { get; set; }
 }
