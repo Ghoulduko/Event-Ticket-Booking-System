@@ -112,6 +112,6 @@ public class ReservationService : IReservationService
     public async Task<IEnumerable<ReservationDto>> GetEventReservations(int eventId)
     {
         var eventReservations = await _reservationRepository.GetEventReservations(eventId);
-        return _mapper.Map<IEnumerable<ReservationDto>>(eventReservations);
+        return _mapper.Map<List<ReservationDto>>(eventReservations);
     }
 }

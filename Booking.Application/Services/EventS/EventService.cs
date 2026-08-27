@@ -111,6 +111,6 @@ public class EventService : IEventService
     public async Task<IEnumerable<EventDto>> GetAllEvents()
     {
         var allEvents = await _eventRepository.GetAllEvents();
-        return _mapper.Map<IEnumerable<EventDto>>(allEvents);
+        return _mapper.Map<List<EventDto>>(allEvents);
     }
 }

@@ -7,6 +7,7 @@ namespace Booking.Application.Dtos.Reservation;
 
 public class ReservationDto
 {
+    public int Id { get; set; }
     public decimal Price { get; set; }
     public int UserId { get; set; }
     public int EventId { get; set; }

@@ -12,10 +12,8 @@ public class MapperProfile : Profile
     {
         // Seat Mapping
         CreateMap<SeatDto, Seat>().ReverseMap();
-        
         // Event Mapping
         CreateMap<EventDto, Event>().ReverseMap();
-        
         // Reservation Mapping
         CreateMap<ReservationDto, Reservation>().ReverseMap();
     }

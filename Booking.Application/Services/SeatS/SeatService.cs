@@ -78,6 +78,6 @@ public class SeatService : ISeatService
     public async Task<IEnumerable<SeatDto>> GetSeatsByEventId(int eventId)
     {
         var allSeats = await _seatRepository.GetSeatsByEventId(eventId);
-        return _mapper.Map<IEnumerable<SeatDto>>(allSeats);
+        return _mapper.Map<List<SeatDto>>(allSeats);
     }
 }

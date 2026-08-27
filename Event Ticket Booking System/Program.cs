@@ -35,6 +35,7 @@ builder.Services.AddScoped<IEventService, EventService>();
 builder.Services.AddScoped<ISeatService, SeatService>();
 builder.Services.AddScoped<IReservationService, ReservationService>();
 builder.Services.AddScoped<IJwtAuthenticationService, JwtAuthenticationService>();
+builder.Services.AddAutoMapper(typeof(Booking.Application.Mapper.Profiles.MapperProfile).Assembly);
 
 // ***** Repositories *****
 builder.Services.AddScoped<IUserRepository, UserRepository>();

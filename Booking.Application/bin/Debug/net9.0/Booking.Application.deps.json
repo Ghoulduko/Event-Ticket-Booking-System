@@ -8,12 +8,60 @@
     ".NETCoreApp,Version=v9.0": {
       "Booking.Application/1.0.0": {
         "dependencies": {
+          "Abbotware.Interop.AutoMapper": "5.0.166",
           "BCrypt.Net-Next": "4.2.0",
           "Booking.Core": "1.0.0",
           "FluentValidation": "12.1.1"
         },
         "runtime": {
           "Booking.Application.dll": {}
+        }
+      },
+      "Abbotware.Core/5.0.166": {
+        "dependencies": {
+          "Microsoft.Extensions.Hosting.Abstractions": "9.0.0",
+          "Microsoft.Extensions.Logging.Abstractions": "9.0.19"
+        },
+        "runtime": {
+          "lib/net9.0/Abbotware.Core.dll": {
+            "assemblyVersion": "5.0.166.0",
+            "fileVersion": "5.0.166.0"
+          }
+        }
+      },
+      "Abbotware.Interop.AutoMapper/5.0.166": {
+        "dependencies": {
+          "Abbotware.Core": "5.0.166",
+          "AutoMapper.Extensions.ExpressionMapping": "7.0.2",
+          "AutoMapper": "13.0.1"
+        },
+        "runtime": {
+          "lib/net9.0/Abbotware.Interop.AutoMapper.dll": {
+            "assemblyVersion": "5.0.166.0",
+            "fileVersion": "5.0.166.0"
+          }
+        }
+      },
+      "AutoMapper/13.0.1": {
+        "dependencies": {
+          "Microsoft.Extensions.Options": "9.0.19"
+        },
+        "runtime": {
+          "lib/net6.0/AutoMapper.dll": {
+            "assemblyVersion": "13.0.0.0",
+            "fileVersion": "13.0.1.0"
+          }
+        }
+      },
+      "AutoMapper.Extensions.ExpressionMapping/7.0.2": {
+        "dependencies": {
+          "AutoMapper": "13.0.1"
+        },
+        "runtime": {
+          "lib/net6.0/AutoMapper.Extensions.ExpressionMapping.dll": {
+            "assemblyVersion": "7.0.0.0",
+            "fileVersion": "7.0.2.0"
+          }
         }
       },
       "Azure.Core/1.38.0": {
@@ -244,6 +292,44 @@
           "lib/net9.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll": {
             "assemblyVersion": "9.0.0.0",
             "fileVersion": "9.0.1926.36724"
+          }
+        }
+      },
+      "Microsoft.Extensions.Diagnostics.Abstractions/9.0.0": {
+        "dependencies": {
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "9.0.19",
+          "Microsoft.Extensions.Options": "9.0.19"
+        },
+        "runtime": {
+          "lib/net9.0/Microsoft.Extensions.Diagnostics.Abstractions.dll": {
+            "assemblyVersion": "9.0.0.0",
+            "fileVersion": "9.0.24.52809"
+          }
+        }
+      },
+      "Microsoft.Extensions.FileProviders.Abstractions/9.0.0": {
+        "dependencies": {
+          "Microsoft.Extensions.Primitives": "9.0.19"
+        },
+        "runtime": {
+          "lib/net9.0/Microsoft.Extensions.FileProviders.Abstractions.dll": {
+            "assemblyVersion": "9.0.0.0",
+            "fileVersion": "9.0.24.52809"
+          }
+        }
+      },
+      "Microsoft.Extensions.Hosting.Abstractions/9.0.0": {
+        "dependencies": {
+          "Microsoft.Extensions.Configuration.Abstractions": "9.0.19",
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "9.0.19",
+          "Microsoft.Extensions.Diagnostics.Abstractions": "9.0.0",
+          "Microsoft.Extensions.FileProviders.Abstractions": "9.0.0",
+          "Microsoft.Extensions.Logging.Abstractions": "9.0.19"
+        },
+        "runtime": {
+          "lib/net9.0/Microsoft.Extensions.Hosting.Abstractions.dll": {
+            "assemblyVersion": "9.0.0.0",
+            "fileVersion": "9.0.24.52809"
           }
         }
       },
@@ -625,6 +711,34 @@
       "serviceable": false,
       "sha512": ""
     },
+    "Abbotware.Core/5.0.166": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-jaF7xVwCFxIbYIoNOQDToDSVWOpqzXRSvWZBRHk5srOkCAPvXC4G7mz3DCrZN+l04lr0z6wh9CpYvB9LUn2t/w==",
+      "path": "abbotware.core/5.0.166",
+      "hashPath": "abbotware.core.5.0.166.nupkg.sha512"
+    },
+    "Abbotware.Interop.AutoMapper/5.0.166": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-GDZ6Dapd8qOebpEhtChoDqNT2Vyk1IB4/Q2saO9wlq0r/e8vovTTP2A1pEK/d+5FwJoN082Qk4ORXIwwNX1G/w==",
+      "path": "abbotware.interop.automapper/5.0.166",
+      "hashPath": "abbotware.interop.automapper.5.0.166.nupkg.sha512"
+    },
+    "AutoMapper/13.0.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-/Fx1SbJ16qS7dU4i604Sle+U9VLX+WSNVJggk6MupKVkYvvBm4XqYaeFuf67diHefHKHs50uQIS2YEDFhPCakQ==",
+      "path": "automapper/13.0.1",
+      "hashPath": "automapper.13.0.1.nupkg.sha512"
+    },
+    "AutoMapper.Extensions.ExpressionMapping/7.0.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-lYvbA1OFi15epeHrrhbNuM/mJgcGGElYDd4MVuPjoqOjzMrwk263WZhzOIGaTxNmUzHkkG5wx4NEszGItvSX7g==",
+      "path": "automapper.extensions.expressionmapping/7.0.2",
+      "hashPath": "automapper.extensions.expressionmapping.7.0.2.nupkg.sha512"
+    },
     "Azure.Core/1.38.0": {
       "type": "package",
       "serviceable": true,
@@ -750,6 +864,27 @@
       "sha512": "sha512-XgQ0aVWClYjYSBqbYrKC/xyZ1KHf+VVwNF3+d54jcaqnst30Q//ugs/FJwUztLZiph0gp85g7i/eB0556twO0Q==",
       "path": "microsoft.extensions.dependencyinjection.abstractions/9.0.19",
       "hashPath": "microsoft.extensions.dependencyinjection.abstractions.9.0.19.nupkg.sha512"
+    },
+    "Microsoft.Extensions.Diagnostics.Abstractions/9.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-1K8P7XzuzX8W8pmXcZjcrqS6x5eSSdvhQohmcpgiQNY/HlDAlnrhR9dvlURfFz428A+RTCJpUyB+aKTA6AgVcQ==",
+      "path": "microsoft.extensions.diagnostics.abstractions/9.0.0",
+      "hashPath": "microsoft.extensions.diagnostics.abstractions.9.0.0.nupkg.sha512"
+    },
+    "Microsoft.Extensions.FileProviders.Abstractions/9.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-uK439QzYR0q2emLVtYzwyK3x+T5bTY4yWsd/k/ZUS9LR6Sflp8MIdhGXW8kQCd86dQD4tLqvcbLkku8qHY263Q==",
+      "path": "microsoft.extensions.fileproviders.abstractions/9.0.0",
+      "hashPath": "microsoft.extensions.fileproviders.abstractions.9.0.0.nupkg.sha512"
+    },
+    "Microsoft.Extensions.Hosting.Abstractions/9.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-yUKJgu81ExjvqbNWqZKshBbLntZMbMVz/P7Way2SBx7bMqA08Mfdc9O7hWDKAiSp+zPUGT6LKcSCQIPeDK+CCw==",
+      "path": "microsoft.extensions.hosting.abstractions/9.0.0",
+      "hashPath": "microsoft.extensions.hosting.abstractions.9.0.0.nupkg.sha512"
     },
     "Microsoft.Extensions.Logging/9.0.19": {
       "type": "package",
