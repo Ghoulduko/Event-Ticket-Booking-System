@@ -6,4 +6,15 @@
         <Nullable>enable</Nullable>
     </PropertyGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\Booking.Core\Booking.Core.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Abbotware.Interop.AutoMapper" Version="5.0.166" />
+      <PackageReference Include="BCrypt.Net-Next" Version="4.2.0" />
+        <Using Include="BCrypt.Net.BCrypt" Alias="BC" />
+      <PackageReference Include="FluentValidation" Version="12.1.1" />
+    </ItemGroup>
+
 </Project>

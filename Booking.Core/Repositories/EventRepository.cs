@@ -5,12 +5,12 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Booking.Core.Repositories;
 
-public class EventRepository : IEventRepository
+public class EventRepository : BaseRepository, IEventRepository
 {
     private readonly TicketBookingDbContext _context;
     private readonly DbSet<Event> _events;
     
-    public EventRepository(TicketBookingDbContext context)
+    public EventRepository(TicketBookingDbContext context) : base(context)
     {
         _context = context;
         _events = _context.Events;
@@ -32,6 +32,7 @@ public class EventRepository : IEventRepository
     {
         return await BaseQuery().FirstOrDefaultAsync(e => e.Id == eventId);
     }
+    
     public async Task<Event?> GetEventByName(string eventName)
     {
         return await BaseQuery().FirstOrDefaultAsync(e => e.Name == eventName);
@@ -41,6 +42,10 @@ public class EventRepository : IEventRepository
     {
         return await BaseQuery().ToListAsync();
     }
-
+    
+    public async Task<bool> EventExists(string name)
+    {
+        return await _events.AnyAsync(e => e.Name == name);
+    }
     
 }

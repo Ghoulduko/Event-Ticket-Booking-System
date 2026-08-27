@@ -5,15 +5,21 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Booking.Core.Repositories;
 
-public class UserRepository : IUserRepository
+public class UserRepository : BaseRepository, IUserRepository
 {
     private readonly TicketBookingDbContext _context;
     private readonly DbSet<User> _users;
 
-    public UserRepository(TicketBookingDbContext context)
+    public UserRepository(TicketBookingDbContext context) : base(context)
     {
         _context = context;
         _users = _context.Users;
+    }
+
+    public async Task AddUserAsync(User user)
+    {
+        await _users.AddAsync(user);
+        await _context.SaveChangesAsync();
     }
 
     public async Task<User?> GetUserById(int userId)
@@ -23,7 +29,7 @@ public class UserRepository : IUserRepository
 
     public async Task<User?> GetUserByEmail(string email)
     {
-        return await _users.SingleOrDefaultAsync(user => user.Email == email);
+        return await _users.SingleOrDefaultAsync(user => user.Email.Equals(email));
     }
 
     public async Task<IEnumerable<User>> GetAllUsers()
