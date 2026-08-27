@@ -164,3 +164,12 @@ C:\Users\LKark\RiderProjects\Event Ticket Booking System\Event Ticket Booking Sy
 C:\Users\LKark\RiderProjects\Event Ticket Booking System\Event Ticket Booking System\obj\Debug\net9.0\Event Ticket Booking System.pdb
 C:\Users\LKark\RiderProjects\Event Ticket Booking System\Event Ticket Booking System\obj\Debug\net9.0\Event Ticket Booking System.genruntimeconfig.cache
 C:\Users\LKark\RiderProjects\Event Ticket Booking System\Event Ticket Booking System\obj\Debug\net9.0\ref\Event Ticket Booking System.dll
+C:\Users\LKark\RiderProjects\Event Ticket Booking System\Event Ticket Booking System\bin\Debug\net9.0\Booking.Core.dll
+C:\Users\LKark\RiderProjects\Event Ticket Booking System\Event Ticket Booking System\bin\Debug\net9.0\Booking.Core.pdb
+C:\Users\LKark\RiderProjects\Event Ticket Booking System\Event Ticket Booking System\bin\Debug\net9.0\BCrypt-Net-Next.dll
+C:\Users\LKark\RiderProjects\Event Ticket Booking System\Event Ticket Booking System\bin\Debug\net9.0\FluentValidation.dll
+C:\Users\LKark\RiderProjects\Event Ticket Booking System\Event Ticket Booking System\bin\Debug\net9.0\FluentValidation.DependencyInjectionExtensions.dll
+C:\Users\LKark\RiderProjects\Event Ticket Booking System\Event Ticket Booking System\bin\Debug\net9.0\Booking.Application.dll
+C:\Users\LKark\RiderProjects\Event Ticket Booking System\Event Ticket Booking System\bin\Debug\net9.0\Booking.Application.pdb
+C:\Users\LKark\RiderProjects\Event Ticket Booking System\Event Ticket Booking System\bin\Debug\net9.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\LKark\RiderProjects\Event Ticket Booking System\Event Ticket Booking System\bin\Debug\net9.0\Microsoft.Bcl.Cryptography.dll

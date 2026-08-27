@@ -6,6 +6,6 @@ public interface IReservationRepository
 {
     Task Create(Reservation request);
     Task<Reservation?> GetReservationById(int reservationId);
-    Task<Reservation?> GetReservationByTicketId(int ticketId);
+    Task<Reservation?> GetReservationByUserEmail(string email);
     Task<IEnumerable<Reservation>> GetEventReservations(int eventId);
 }
