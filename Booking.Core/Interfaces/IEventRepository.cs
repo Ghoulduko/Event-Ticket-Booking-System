@@ -9,4 +9,5 @@ public interface IEventRepository
     Task<Event?> GetEventByName(string eventName);
     Task<bool> EventExists(string name);
     Task<IEnumerable<Event>> GetAllEvents();
+    Task SaveChanges();
 }

@@ -12,10 +12,16 @@ public class TicketBookingDbContext : DbContext
     {
         base.OnModelCreating(modelBuilder);
         
-        modelBuilder.Entity<Reservation>()
-            .HasOne(r => r.Seat)
-            .WithMany()
-            .HasForeignKey(r => r.SeatId)
+        modelBuilder.Entity<Seat>()
+            .HasOne(s => s.Reservation)
+            .WithMany(r => r.Seats)
+            .HasForeignKey(s => s.ReservationId)
+            .OnDelete(DeleteBehavior.SetNull); 
+        
+        modelBuilder.Entity<Seat>()
+            .HasOne(s => s.Event)
+            .WithMany(e => e.TotalSeats)
+            .HasForeignKey(s => s.EventId)
             .OnDelete(DeleteBehavior.NoAction);
     }
 

@@ -21,7 +21,7 @@ public class ReservationRepository : BaseRepository, IReservationRepository
         return _reservations
             .Include(r => r.User)
             .Include(r => r.Event)
-            .Include(r => r.Seat);
+            .Include(r => r.Seats);
     }
     
     public async Task Create(Reservation request)
