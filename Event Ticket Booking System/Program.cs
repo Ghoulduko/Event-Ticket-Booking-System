@@ -47,6 +47,9 @@ builder.Services.AddScoped<ISeatRepository, SeatRepository>();
 builder.Services.AddValidatorsFromAssemblyContaining<RegisterUserValidator>();
 builder.Services.AddValidatorsFromAssemblyContaining<LoginUserValidator>();
 
+// ***** Unit Of Work *****
+builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
+
 var jwtKey = builder.Configuration["JwtConfig:Key"] ?? throw new JwtKeyNotFoundException("No JWT Secret Key was found");
 
 builder.Services.AddAuthentication(options =>

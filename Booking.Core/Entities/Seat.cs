@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using Booking.Core.Models;
 
 namespace Booking.Core.Entities;
@@ -10,6 +11,9 @@ public class Seat : BaseModel
     public int Row { get; set; }
     public int EventId { get; set; }
     public int? ReservationId { get; set; }
+    
+    [Timestamp]
+    public byte[]? RowVersion { get; set; }
     
     public Event? Event { get; set; }
     public Reservation? Reservation { get; set; }

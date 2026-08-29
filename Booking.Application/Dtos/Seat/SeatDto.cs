@@ -1,6 +1,4 @@
-﻿using Booking.Application.Dtos.Event;
-
-namespace Booking.Application.Dtos.Seat;
+﻿namespace Booking.Application.Dtos.Seat;
 
 public class SeatDto
 {

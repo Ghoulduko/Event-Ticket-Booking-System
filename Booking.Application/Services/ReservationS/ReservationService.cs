@@ -5,21 +5,20 @@ using Booking.Core.Entities;
 using Booking.Core.Enums;
 using Booking.Core.Interfaces;
 using Booking.Core.Models;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 
 namespace Booking.Application.Services.ReservationS;
 
 public class ReservationService : IReservationService
 {
-    private readonly IReservationRepository _reservationRepository;
-    private readonly ISeatRepository _seatRepository;
+    private readonly IUnitOfWork _unitOfWork;
     private readonly IMapper _mapper;
     private readonly ILogger<ReservationService> _logger;
     
-    public ReservationService(IReservationRepository reservationRepository, ISeatRepository seatRepository, IMapper mapper, ILogger<ReservationService> logger)
+    public ReservationService(IUnitOfWork unitOfWork, IMapper mapper, ILogger<ReservationService> logger)
     {
-        _reservationRepository = reservationRepository;
-        _seatRepository = seatRepository;
+        _unitOfWork = unitOfWork;
         _mapper = mapper;
         _logger = logger;
     }
@@ -52,55 +51,65 @@ public class ReservationService : IReservationService
                 Message = "Invalid Seats"
             };
         }
-
-        List<Seat> seats = new List<Seat>();
-
-        foreach (var seatId in request.SeatsList)
-        {
-            var seat = await _seatRepository.GetById(seatId);
-            if (seat == null)
-            {
-                return new Result<ReservationDto>
-                {
-                    Success = false,
-                    Message = "Invalid Seat"
-                };
-            } else if (!seat.IsAvailable)
-            {
-                return new Result<ReservationDto>
-                {
-                    Success = false,
-                    Message = "Seat is already reserved by someone else."
-                };
-            }
-            
-            seats.Add(seat);
-            seat.IsAvailable = false;
-            await _seatRepository.SaveChanges();
-        }
-
-        var reservation = new Reservation
-        {
-            Price = request.SeatsList.Count * 50,
-            UserId = userId,
-            EventId = request.EventId,
-            Seats = seats,
-            Status = ReservationStatus.Confirmed,
-            ReservationDate = DateTime.UtcNow
-        };
         
-        await _reservationRepository.Create(reservation);
+        await _unitOfWork.BeginTransactionAsync();
 
-        return new Result<ReservationDto>
+        try
         {
-            Success = true,
-            Message = "Reservation created successfully"
-        };
+            List<Seat> seats = new List<Seat>();
+
+            foreach (var seatId in request.SeatsList)
+            {
+                var seat = await _unitOfWork.Seats.GetById(seatId);
+                if (seat == null || !seat.IsAvailable)
+                {
+                    await _unitOfWork.RollbackAsync();
+                    return new Result<ReservationDto>
+                    {
+                        Success = false,
+                        Message = "Seat unavailable"
+                    };
+                }
+                seats.Add(seat);
+                seat.IsAvailable = false;
+            }
+
+            await _unitOfWork.Seats.SaveChanges();
+
+            var reservation = new Reservation
+            {
+                Price = request.SeatsList.Count * 50,
+                UserId = userId,
+                EventId = request.EventId,
+                Seats = seats,
+                Status = ReservationStatus.Confirmed,
+                ReservationDate = DateTime.UtcNow
+            };
+        
+            await _unitOfWork.Reservations.Create(reservation);
+            await _unitOfWork.CommitAsync();
+
+            return new Result<ReservationDto>
+            {
+                Success = true,
+                Message = "Reservation created successfully",
+                Data = _mapper.Map<ReservationDto>(reservation)
+            };
+        }
+        catch (DbUpdateConcurrencyException)
+        {
+            await _unitOfWork.RollbackAsync();
+            return new Result<ReservationDto>
+            {
+                Success = false,
+                Message = "Someone booked a seat first"
+            };
+        }
     }
 
     public async Task<Result<ReservationDto>> GetReservationById(int reservationId)
     {
-        var reservation = await _reservationRepository.GetReservationById(reservationId);
+        var reservation = await _unitOfWork.Reservations.GetReservationById(reservationId);
         if (reservation == null)
         {
             return new Result<ReservationDto>
@@ -120,7 +129,7 @@ public class ReservationService : IReservationService
 
     public async Task<Result<ReservationDto>> GetReservationByUserEmail(string email)
     {
-        var reservation = await _reservationRepository.GetReservationByUserEmail(email);
+        var reservation = await _unitOfWork.Reservations.GetReservationByUserEmail(email);
         if (reservation == null)
         {
             return new Result<ReservationDto>
@@ -140,7 +149,7 @@ public class ReservationService : IReservationService
     
     public async Task<IEnumerable<ReservationDto>> GetEventReservations(int eventId)
     {
-        var eventReservations = await _reservationRepository.GetEventReservations(eventId);
+        var eventReservations = await _unitOfWork.Reservations.GetEventReservations(eventId);
         return _mapper.Map<List<ReservationDto>>(eventReservations);
     }
 }
