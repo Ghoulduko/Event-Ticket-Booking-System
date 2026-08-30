@@ -34,6 +34,7 @@ public class UserService : IUserService
             Success = true,
             Data = new UserDto
             {
+                Id =  user.Id,
                 Name = user.Name,
                 LastName = user.LastName,
                 Email = user.Email,
@@ -58,6 +59,7 @@ public class UserService : IUserService
             Success = true,
             Data = new UserDto
             {
+                Id =  user.Id,
                 Name = user.Name,
                 LastName = user.LastName,
                 Email = user.Email,
@@ -70,6 +72,7 @@ public class UserService : IUserService
         var allUsers = await _userRepository.GetAllUsers();
         var userDtos = allUsers.Select(u => new UserDto
         {
+            Id =  u.Id,
             Name = u.Name,
             LastName = u.LastName,
             Email = u.Email,

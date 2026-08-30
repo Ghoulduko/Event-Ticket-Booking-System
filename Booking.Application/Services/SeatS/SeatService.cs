@@ -54,7 +54,7 @@ public class SeatService : ISeatService
         return new Result<SeatDto>
         {
             Success = true,
-            Message = "Event created successfully"
+            Message = "Seat created successfully"
         };
     }
 

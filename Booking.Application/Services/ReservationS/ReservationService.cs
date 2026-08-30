@@ -89,11 +89,13 @@ public class ReservationService : IReservationService
             await _unitOfWork.Reservations.Create(reservation);
             await _unitOfWork.CommitAsync();
 
+            var reservationWithId = await _unitOfWork.Reservations.GetReservationById(reservation.Id);
+
             return new Result<ReservationDto>
             {
                 Success = true,
                 Message = "Reservation created successfully",
-                Data = _mapper.Map<ReservationDto>(reservation)
+                Data = _mapper.Map<ReservationDto>(reservationWithId)
             };
         }
         catch (DbUpdateConcurrencyException)
